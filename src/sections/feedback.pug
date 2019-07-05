@@ -1,0 +1,26 @@
+section.section.feedback#feedback
+  .container
+    h2.base__title.feedback__title Связаться со мной
+    form(action='#' method='POST' class='form')
+      .form__row
+        .form__item
+          label(for='text-name' class='form__subtitle')
+            .form__text Введите ваше имя
+          .form__input-block  
+            +icon('user', 'form__ico form__user')          
+            input(type="text", name="name", id="text-name", class="form__input form__field")
+        .form__item
+          label(for='text-mail' class='form__subtitle')
+            .form__text Введите ваш email
+          .form__input-block  
+            +icon('envelope', 'form__ico form__mail')          
+            input(type="text", name="mail", id="text-mail", class="form__input form__field")
+      .form__row
+        .form__item
+          label(for='text-message' class='form__subtitle')
+            .form__text Сообщение к письму
+          .form__input-block  
+            +icon('message', 'form__ico form__message')          
+            textarea(name="message", id="message", class="form__textarea form__field")
+      button(type="submit" class="form-btn")
+        span.form-btn__text Отправить

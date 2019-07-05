@@ -1,0 +1,19 @@
+section.fullscreen-section.section.about#about
+  .container
+    .about__wrap
+      .about__base
+        .about__user
+          +image('content/profile.png', 'about__user-pic')
+        table.about__table
+          -var data = [{title: "Проживаю", text: "Тюмень"}, {title: "Возраст", text:"22 года"}, {title: "Родилась", text: "2 апреля 1997"}]
+          each item in data
+            tr.about__table-row
+              td.base__text.about__teble-data=item.title+": "
+              td.about__table-data=item.text
+      .about__desc
+        p.about__hello.base__text Привет, меня зовут
+        h2.base__title.about__title Ставрова Дарья
+        p.base__text.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+        .about__note
+          span.about__note-symb *
+          p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

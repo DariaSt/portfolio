@@ -1,0 +1,124 @@
+.portfolio{
+  margin-bottom: 123px;
+
+  &__title{
+    margin-bottom: 92px;
+  }
+
+  &__slider-wrap{
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__slider{
+    position: relative;
+  }
+
+  &__slider-items{
+    background: url('../images/content/item4.png') center center/cover no-repeat;
+    position: relative;
+    width: 975px;
+    height: 549px;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__item{
+    width: 178px;
+    height: 100px;
+
+    &--active{
+      border: 3px solid $highlighting;
+    }
+  }
+
+  .portfolio__slider-but{
+    position: absolute;
+    /* bottom: 0; */
+    right: 0;
+  }
+
+  .portfolio__but{
+    width: 50px;
+    height: 50px;
+    background-color: #2d3c4e;
+
+    &:hover{
+      background-color: $highlighting;
+    }
+  }
+
+  .portfolio__but-pic{
+    width: 10px;
+    height: 8px;
+    fill: #ffffff;
+  }
+
+  .portfolio__prev-pic{
+    transform: rotate(-90deg);
+  }
+
+  .portfolio__next-pic{
+    transform: rotate(90deg);
+  }
+
+  .portfolio__item-numb{
+    opacity: 0.05;
+    font-size: 400px;
+    font-weight: 800;
+    margin-left: -70px;
+  }
+
+  .portfolio__tags{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .portfolio__tags-item{
+    opacity: 0.7;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 12px 19px;
+    border-radius: 23px;
+    background-color: #f2f5f9;
+    margin-right: 15px;
+    margin-bottom: 48px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  .portfolio__info-title{
+    font-size: 30px;
+    margin-bottom: 44px;
+  }
+
+  .portfolio__info-text{
+    margin-bottom: 50px;
+  }
+
+  .portfolio__info-link{
+    color: #4b6fd7;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  .portfolio__info-link-pic{
+    width: 15px;
+    height: 15px;
+    fill: #4b6fd7;
+    margin-right: 20px;
+  }
+}

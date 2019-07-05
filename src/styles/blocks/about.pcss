@@ -1,0 +1,82 @@
+.about{
+
+  &__wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+  }
+
+  &__base{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    /* align-items: center; */
+  }
+
+  &__user{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 60px;
+  }
+
+  &__user-pic{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__table{
+    /* border-collapse: separate; Способ отображения границы  */
+    /* width: 100%; Ширина таблицы  */
+    border-spacing: 50px 20px; /* Расстояние между ячейками */ 
+  }
+
+  &__table-row{
+  }
+
+  &__table-data{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__desc{
+    width: 50%;
+  }
+
+  &__hello{
+    margin-bottom: 30px;
+  }
+
+  &__title{
+    margin-bottom: 38px;
+  }
+
+  &__text{
+    margin-bottom: 100px;    
+  }
+
+  &__note{
+    display: flex;
+    flex-direction: row;
+    /* align-items: baseline; */
+  }
+
+  &__note-symb{
+    opacity: 0.1;
+    color: #ff0000;
+    font-size: 48px;
+    font-style: italic;
+    margin-right: 30px;
+  }
+
+  &__note-text{
+    opacity: 0.5;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+  }
+}

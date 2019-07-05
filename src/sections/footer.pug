@@ -1,0 +1,21 @@
+footer.footer
+  .container
+    .footer__base-wrap
+      span.footer__year &#169; 2019
+      .footer__author
+        span.footer__title Ставрова Дарья
+        p.footer__desc Личный сайт веб разработчика
+      .footer__content-wrap
+        include ./nav.pug
+        +nav('nav',['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'])
+        .footer__content-join
+          .footer__content
+            span.footer__content-text.footer__base-text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+            .footer__socials
+              include ./socials.pug
+              +socials('social',['insta', 'vk', 'github'], 'footer')
+          .footer__quote
+            q.footer__quote-text.footer__base-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            cite.footer__quote-author Martin Golding
+      
+
