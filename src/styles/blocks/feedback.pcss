@@ -7,19 +7,26 @@
 }
 
 .form{
+  width: 70%;
 
   &__row{
+    width: 100%;
     display: flex;
     margin-bottom: 40px;
+    display: flex;
   }
 
   &__item{
+    flex:1;
+    display: flex;
+    flex-direction: column;
     &:nth-child(2n){
       margin-left: 50px;
     }
   }
 
   &__input-block{
+    display: flex;
     border-bottom: 2px solid $text-color;
     &:focus-within {
       border-bottom: 2px solid $highlighting;
@@ -46,17 +53,17 @@
   }
 
   &__field{
+    flex:1;
     margin-left: 20px;
     border: none;
+    outline: none;
     font-size: 18px;
     font-weight: 700;
     background-color: transparent;
+  }
 
-    &:focus{
-      outline: none;
-
-    
-    }
+  &__textarea{
+    resize: none;
   }
 
   &-btn{
