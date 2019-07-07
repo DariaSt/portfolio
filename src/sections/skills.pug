@@ -2,20 +2,12 @@ mixin skills(className, items, percent)
   div(class=`skills__${className}`)
     h3(class='skills__title')=`${className}`
     ul(class='skills__list')
-      each item in items
+      each item, ndx in items
         li(class=`skills__item skills__item-${item}`)
-          //- svg(class="skill__svg", viewBox='0 0 140 140', preverseAspectRation="none")
-          //- linearGradient#linear-gradient
-          //-   stop(offset="0%", stop-color="#ad00ed")
-          //-   stop(offset="100%", stop-color="#5500f2")
-          //- circle(cx='70', cy='70', r='60', class='skill__circle')
-          //- circle(cx='70', cy='70', r='60', class='skill__circle skill__circle-gradient' style=`animation-delay:-${percent}s`)
-          <svg class="skill__svg" viewBox='0 0 140 140' preverseAspectRation="none">
-          <linearGradient id="linear-gradient">
-            <stop offset="0%" stop-color="#ad00ed"/>
-            <stop offset="100%" stop-color="#5500f2"/>
-          </linearGradient>
-            <circle cx='70' cy='70' r='60' class='skill__circle'></circle>
-            <circle cx='70' cy='70' r='60' class='skill__circle skill__circle-gradient' style='animation-delay: -50s'></circle>
-          </svg>
+          svg(class="skill__svg" viewBox='0 0 140 140' preverseAspectRation="none")
+            linearGradient#linear-gradient
+              stop(offset="0%" stop-color="#5500f2")
+              stop(offset="100%" stop-color="#ad00ed")
+            circle(cx='70' cy='70' r='60' class='skill__circle')
+            circle(cx='70' cy='70' r='60' class='skill__circle skill__circle-gradient' style=`animation-delay: ${percent[ndx]}`)
           span.skills__item-text=item
