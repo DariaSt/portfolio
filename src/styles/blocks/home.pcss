@@ -2,6 +2,35 @@
   display: flex;
   position: relative;
   margin-bottom: 170px;
+
+  @include tablets{
+    height: 70vh;
+    margin-bottom: 90px;
+  }
+
+  &__content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content-wrap{
+    display: flex;
+    flex-direction: column;
+
+    @include desktop{
+      flex-direction: row;
+    }
+
+    @include tablets{
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 .header{
@@ -10,6 +39,33 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .nav{
+    @include tablets{
+      display: none;
+    }
+  }
+
+  .social__list.active{
+    display: none;
+    transition: .3s;
+  }
+  
+
+  .social__list{
+    @include phones{
+      display: none;
+    }
+  }
+
+  &__buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include phones{
+    }
+  }
 }
 
 .header__logo-link{
@@ -47,6 +103,10 @@
 .social__list{
   display: flex;
   flex-direction: row;
+
+  @include tablets{
+    margin-right: 120px;
+  }
 }
 
 .social__item{
@@ -67,33 +127,215 @@
   }
 }
 
-.home__content{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .content__desc{
   /* width: 160px; */
   text-align: center;
   opacity: 0.4;
   font-size: 18px;
   font-weight: 600;
+
+  span{
+    display: block;
+  }
+
+  @include desktop{
+    align-self: start;
+    width: 50%;
+    text-align: right;
+    margin-right: 60px;
+  }
+
+  @include tablets{
+    margin-bottom: 30px;
+    margin-right: 0px;
+    align-self: center;
+    text-align: center;
+  }
+
+  @include phones{
+    width: 100%;
+  }
 }
 
 .content__title{
   font-size: 72px;
   font-weight: 800;
+  line-height: 60px;
+
+  @include desktop{
+    align-self: start;
+    width: 50%;
+  }
+
+  @include tablets{
+    width: 80%;
+    align-self: center;
+  }
+
+  @include phones{
+    width: 100%;
+  }
 }
 
 .content__scroll{
   text-decoration: none;
   position: absolute;
   bottom: 0;
+
+  @include phones{
+    display: none;
+  }
 }
 
 .img-scroll{
   width: 20px;
+}
+
+.hamburger{
+  width: 24px;
+  height: 4px;
+  position: fixed;
+  right: 30px;
+  display: none;
+  margin-left: 93px;
+  margin-right: 40px;
+
+  @include tablets{
+    display: block;
+  }
+
+  @include phones{
+   margin: 0;
+  }
+
+  &__content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:after, &:before{
+      content:'';
+      display: block;
+      width: 24px;
+      height: 4px;
+      background-color: $text-color;
+      position: absolute;
+      transition: 0.3s;
+    }
+    
+    &:after{
+      top: 100%;
+      margin-top: 5px;
+    }
+    
+    &:before{
+      bottom: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__line{
+    width: 100%;
+    height: 4px;
+    background-color: $text-color;
+    transition: 0.3s;
+  }
+}
+
+.hidden{
+  overflow: hidden;
+}
+
+.hamburger.active{
+  top: 40px;
+  z-index: 2;
+
+  .hamburger__line{
+    /* background-color: red; */
+    opacity: 0;
+  }
+
+  .hamburger__content{
+    &::before{
+      transform: rotate(45deg);
+      top: 8px;
+    }
+
+    &::after{
+      transform: rotate(-45deg); 
+      bottom: 8px;     
+    }
+  }
+}
+
+.nav.active{
+  position: fixed;
+  width: 40%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  padding-left: 67px;
+
+  @include phones{
+    width: 100%;
+    z-index: 1;
+  }
+
+  .nav__list{
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    top: 30%;
+  }
+
+  .nav__item{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 34px;
+    text-align: left;
+
+    &::before{
+      display: none;
+    }
+
+    &::after{
+      display: block;
+      content: "";
+      position: absolute;
+      transform: translate(-50%);
+      left: 50%;
+      top: -30px;
+      width: 4px;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+    
+    &:first-child::after{
+      display: none;
+    }
+  }
+
+  .nav__link{
+    font-size: 18px;
+    font-weight: 700;
+
+    @include phones{
+      font-size: 18px;
+    }
+  }
+
+  .social__list.active{
+    position: fixed;
+    top: 60%;
+    display: flex;
+
+    @include phones{
+      top: 70%;
+    }
+  }
 }

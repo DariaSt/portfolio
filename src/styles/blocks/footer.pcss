@@ -5,14 +5,46 @@
   left: 0;
   bottom: 0;
   background-color: #1f232d;
-  height: 407px;
+  min-height: 407px;
+
+  @include tablets{
+    min-height: 482px;
+  }
+
+  @include phones{
+    min-height: 741px;
+  }
 
   &__base-wrap{
     width: 100%;
     padding-top: 100px;
     display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+
+    @include tablets{
+      padding-top: 65px;
+    }
+
+    @include phones{
+      flex-direction: column;
+    }
+  }
+
+  &__base-info{
+    width: 30%;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include desktop{
+      flex-direction: column;
+    }
+
+    @include phones{
+      width: 100%;
+      margin-bottom: 50px;
+    }
   }
 
   &__year{
@@ -20,11 +52,20 @@
     opacity: 0.1;
     font-size: 48px;
     font-weight: 600;
+    line-height: 30px;
+
+    @include desktop{
+      margin-bottom: 30px;
+    }
   }
 
   &__author{
     flex: 1;
     width: 143px;
+
+    @include phones{
+      width: 100%;
+    }
   }
 
   &__title{
@@ -42,18 +83,51 @@
   }
 
   &__content-wrap{
-    flex: 5;
+    width: 70%;
+
+    @include phones{
+      width: 90%;
+    }
+  }
+
+  .nav__list{
+    .nav__item{
+      margin-bottom: 32px;
+    }
+
+    @include tablets{
+      flex-wrap: wrap;
+    }
+
+    /* @include phones{
+      width: 90%;
+    } */
   }
 
   &__content-join{
-    margin-top: 33px;
+    /* margin-top: 33px; */
     display: flex;
     justify-content: space-between;    
-    width: 80%;
+    width: 87%;
+
+    @include tablets{
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   &__content, &__quote{
     width: 45%;
+
+    @include tablets{
+      width: 100%;
+    }
+  }
+
+  &__content{
+    @include tablets{
+      margin-bottom: 40px;
+    }
   }
 
   &__base-text{
@@ -99,5 +173,9 @@
   &__quote-text{
     quotes: none;
     margin-bottom: 35px;
+
+    @include tablets{
+      margin-bottom: 18px;
+    }
   }
 }

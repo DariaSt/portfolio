@@ -3,8 +3,9 @@ section.section.reviews#reviews
     .reviews__wrap
       .reviews__intro
         h2.base__title.reviews__title Что обо мне говорят
-        include ./buttons
-        +buttons('reviews')
+        .reviews__buttons
+          include ./buttons
+          +buttons('reviews')
       ul.reviews__list
         li.reviews__item
           .reviews__item-quote
