@@ -1,8 +1,19 @@
 import Vue from 'vue';
 import Flickity from 'vue-flickity';
 
+export const bus = new Vue();
+
 const btns = {
-  template: "#reviews-btns"
+  template: "#reviews-btns",
+  methods: {
+    next() {
+      this.$parent.$emit('next');
+    },
+ 
+    previous() {
+      this.$parent.$emit('prev');
+    }
+  }
 }
 
 const reviewsHeader = {
@@ -17,23 +28,12 @@ const display = {
   data(){
     return {
       flickityOptions: {
-        initialIndex: 3,
         prevNextButtons: false,
         pageDots: false,
-        wrapAround: true
-    
+        cellAlign: 'left',
+        groupCells: 2
         // any options from Flickity can be used
         }
-    }
-  },
-  methods: {
-    next() {
-      console.log('next');
-      this.$refs.flickity.next();
-    },
- 
-    previous() {
-      this.$refs.flickity.previous();
     }
   },
   props: {
@@ -41,6 +41,19 @@ const display = {
   },
   components:{
     Flickity
+  },
+  methods: {
+    changeFlickityOptions(){
+      if (matchMedia('screen and (max-width: 320px)').matches ) {
+        this.flickityOptions.groupCells = 1;
+      }
+      else{
+        this.flickityOptions.groupCells = 2;
+      }
+    }
+  },
+  created(){
+    this.changeFlickityOptions();
   }
 }
 
@@ -48,7 +61,7 @@ new Vue({
   el: "#reviews-component",
   template: "#reviews-container",
   components: {
-    reviewsHeader, display
+    reviewsHeader, display, Flickity
   },
   data(){
     return {
@@ -62,6 +75,12 @@ new Vue({
         item.authorPic = requirePic;
         return item;
       })
+    },
+    next(){
+      this.$children[1].$refs.flickity.next();
+    },
+    prev(){
+      this.$children[1].$refs.flickity.previous();
     }
   },
   created(){
