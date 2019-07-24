@@ -1,0 +1,38 @@
+script(type="text/x-template")#reviews-container
+  .reviews__contain
+    reviewsHeader
+    display(
+      :reviews="reviews"
+    )
+  
+
+script(type="text/x-template")#reviews-header
+  .reviews__intro
+    h2.base__title.reviews__title Что обо мне говорят
+    btns
+    
+
+script(type="text/x-template")#reviews-btns
+  .reviews__buttons
+    button(type="button" class='reviews__but reviews__prev') 
+      +icon('arrow-down', 'reviews__but-pic reviews__prev-pic')            
+    button(type="button" class='reviews__but reviews__next')
+      +icon('arrow-down', 'reviews__but-pic reviews__next-pic') 
+
+script(type="text/x-template")#reviews-display
+  ul.reviews__list
+    flickity(ref="flickity" :options="flickityOptions")
+      li.reviews__item.carousel-cell(v-for="review in reviews")
+        .reviews__item-quote
+          +icon('quote', 'reviews__item-quote-pic')
+        .reviews__item-text
+          p.base__text.reviews__item-review {{review.text}}
+          .reviews__author
+            .reviews__author-avatar
+              +image('content/Дмитрий.png', 'reviews__author-pic')
+            .reviews__author-text
+              span.reviews__author-name {{review.authorName}}
+              span.reviews__author-post {{review.authorOcc}}
+    button(@click="previous()") Previous Button
+    button(@click="next()") Next Button
+    

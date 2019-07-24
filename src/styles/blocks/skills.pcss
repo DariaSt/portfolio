@@ -1,0 +1,164 @@
+/* .skills__title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 50px;
+
+  @include phones{
+    margin-bottom: 34px;
+  }
+}
+
+.skills__list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @include phones{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 57px;
+  }
+}
+
+.skills__item{
+  margin-bottom: 58px;
+  display: inline-flex;
+  margin-right: 68px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &:last-child{
+    margin-right: 0;
+  }
+
+  @include desktop{
+    margin-right: 40px;
+  }
+
+  @include phones{
+    margin-right: 25px;
+    margin-bottom: 25px;
+
+    &:nth-child(2n){
+      margin-right: 0;
+    }
+  }
+}
+
+.skills__item-text{
+  position: absolute;
+  margin:auto;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.skill__svg{
+  width: 134px;
+  height: 134px;
+  transform: rotate(-180deg);
+}
+
+.skill__circle{
+  fill: transparent;
+  stroke-width: 10px;
+  stroke: #eaeaea;
+}
+
+.skill__circle-gradient{
+  stroke-width: 20px;
+  stroke: url(#linear-gradient);
+  stroke-dasharray: 377;
+  stroke-dashoffset: 377;
+  animation: fill 100s linear infinite;
+  animation-play-state: paused;
+}
+
+.skill__circle-gradient[style='animation-delay: -100s']{
+  animation: initial;
+  stroke-dashoffset:0;
+}
+
+@keyframes fill{
+  from{
+    stroke-dashoffset: 377;
+  }
+  to{
+    stroke-dashoffset: 0;
+  }
+} */
+
+.skill {
+  position: relative;
+  width: 166px;
+  height: 166px;
+
+  @include tablets {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+.skill__circle {
+  fill: transparent;
+  &_under {
+    stroke: #eaeaea;
+    stroke-width: 5px;
+  }
+  &_above {
+    stroke-width: 12px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 100;
+  }
+}
+
+.skill__circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba($text-color, .5);
+  padding: 14px;
+
+  @include phones {
+    font-size: 16px;
+  }
+}
+
+.skills-row__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 50px;
+
+  @include phones{
+    margin-bottom: 34px;
+  }
+}
+
+.skills-row__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4%;
+  @include phones {
+    justify-content: center;
+  }
+}
+
+.skills-row__item {
+  margin-left: 4%;
+  text-align: center;
+}
+
+.skills {
+  @include phones {
+    text-align: center;
+  }
+}
+
+.skills__item {
+  margin-bottom: 30px;
+}

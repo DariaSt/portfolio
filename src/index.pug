@@ -10,10 +10,9 @@ html(lang="ru")
   body
     .wrapper
       .maincontent
-        include ./sections/parallax-mountain
-          .wrapper-main-info
-            include ./sections/home
-            include ./sections/about
+        .wrapper-main-info
+          include ./sections/home
+          include ./sections/about
         .wrapper-skills
           include ./sections/profit
           include ./sections/portfolio
@@ -21,6 +20,7 @@ html(lang="ru")
           include ./sections/reviews
           include ./sections/feedback
         include ./sections/footer
+    include ./entry.pug
         //- +image('content/user.jpg', 'user-pic')
         //- +icon('link', 'link-class')
         //- .icon-bg

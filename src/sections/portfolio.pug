@@ -3,28 +3,4 @@ section.section.portfolio#portfolio
     .portfolio__wrap
       h2.base__title.portfolio__title Мои работы
       .portfolio__slider-wrap
-        .portfolio__slider-block
-          .portfolio__slider
-            .portfolio__slider-items
-              ul.portfolio__list
-                li.portfolio__item
-                    +image('content/item1.png', 'portfolio__item-pic')
-                li.portfolio__item
-                    +image('content/item2.png', 'portfolio__item-pic')
-                li.portfolio__item
-                    +image('content/item3.png', 'portfolio__item-pic')
-                li.portfolio__item.portfolio__item--active
-                    +image('content/item4.png', 'portfolio__item-pic')
-            .portfolio__slider-but
-              include ./buttons
-              +buttons('portfolio')
-          .portfolio__item-numb 4
-        .portfolio__info
-          ul.portfolio__tags
-            each item in ["HTML", "CSS", "Javascript"]
-              li.portfolio__tags-item=item
-          h3.base__title.portfolio__info-title Сайт школы образования
-          p.base__text.portfolio__info-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-          a(href='#').portfolio__info-link 
-            +icon('link', 'portfolio__info-link-pic')      
-            span Посмотреть сайт
+        #slider-component

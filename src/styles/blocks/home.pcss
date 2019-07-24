@@ -4,16 +4,20 @@
   margin-bottom: 170px;
 
   @include tablets{
-    height: 70vh;
-    margin-bottom: 90px;
+    height: 65vh;
+    margin-bottom: 70px;
   }
 
   &__content{
-    height: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include desktop{
+      height: 45%;
+    }
   }
 
   &__content-wrap{
@@ -181,8 +185,11 @@
   text-decoration: none;
   position: absolute;
   bottom: 0;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
 
-  @include phones{
+  @include tablets{
     display: none;
   }
 }

@@ -1,23 +1,25 @@
 section.fullscreen-section.home#home
-  .container
-    header.header
-      .header__logo
-        a(href="#").header__logo-link сд
-      include ./nav.pug
-      +nav('nav',['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['#home', '#about', '#profit', '#portfolio', '#reviews', '#feedback'])
-      .header__buttons
-        .header__social
-          include ./socials.pug
-          +socials('social',['insta', 'vk', 'github'], 'header')
-        .hamburger
-          .hamburger__content
-            .hamburger__line
-    .home__content
-      .home__content-wrap
-        p.content__desc Личный сайт 
-          span веб разработчика
-        h1.content__title Ставрова 
-          span Дарья
-      a(href="#").content__scroll
-        span.scroll__text Скролл
-        +icon('scroll', 'img-scroll')
+    a(href="#").content__scroll
+      span.scroll__text Скролл
+      +icon('scroll', 'img-scroll')
+    include ./parallax-mountain 
+      .container
+        header.header
+          .header__logo
+            a(href="#").header__logo-link сд
+          include ./nav.pug
+          +nav('nav',['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['#home', '#about', '#profit', '#portfolio', '#reviews', '#feedback'])
+          .header__buttons
+            .header__social
+              include ./socials.pug
+              +socials('social',['insta', 'vk', 'github'], 'header')
+            .hamburger
+              .hamburger__content
+                .hamburger__line
+        .home__content
+          .home__content-wrap
+            p.content__desc Личный сайт 
+              span веб разработчика
+            h1.content__title Ставрова 
+              span Дарья                   
+    
