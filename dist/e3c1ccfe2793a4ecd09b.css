@@ -1,0 +1,1 @@
+.nav{display:-webkit-box;display:-ms-flexbox;display:flex;background-color:#fff}.nav__item{padding:1.75rem}.nav__item--active{border-bottom:3px solid #383bcf}.nav__item--active .nav__item-link{color:#383bcf;font-weight:600}.nav__item-link{color:#414c63;font-size:1rem;text-decoration:none}

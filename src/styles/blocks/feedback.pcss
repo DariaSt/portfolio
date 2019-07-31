@@ -14,6 +14,7 @@
   }
 
   @include phones{
+    min-height: 1200px;
     margin-bottom: 154px;
   }
 }
@@ -114,4 +115,30 @@
     font-weight: 700;
     text-transform: uppercase;
   }
+}
+
+.error {
+  background: #F08080;
+  width: 150px; 
+  position: relative;
+  top: 10px;
+  left: 20px;
+  display: none;
+  
+  &:before {
+    content: "";
+    height: 0; 
+    width: 0;
+    position: absolute; 
+    left: 10px; 
+    top: -10px;
+    border-bottom: 10px solid #F08080;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+}
+
+.error__text{
+  padding: 10px;
+  color: white;
 }
