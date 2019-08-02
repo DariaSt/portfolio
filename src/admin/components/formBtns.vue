@@ -1,7 +1,7 @@
 <template lang="pug">
   .block
-    button(type="button").block__btn Отмена
-    button(type="button").block__btn.works__btn Сохранить
+    button.block__btn(type="button" @click="reset") Отмена
+    button.block__btn.works__btn(type="button" @click="submit") Сохранить
 </template>
 
 <script>

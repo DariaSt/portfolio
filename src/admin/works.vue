@@ -11,29 +11,35 @@
           input(type="file")
           span Загрузить
       .form__block-text
-        .block-text__item
+        .block-text__item(:class="{error: validation.hasError('mail')}")
           label(for='text-name' class='form__subtitle')
             .form__text Название
           .form__input-block
-            input(type="text", name="name", id="text-name", class="form__input form__field")
-        .block-text__item
+            input(type="text" v-model="name" name="name" id="text-name" class="form__input form__field")
+          .message {{ validation.firstError('name') }}
+        .block-text__item(:class="{error: validation.hasError('mail')}")
           label(for='text-link' class='form__subtitle')
             .form__text Ссылка
           .form__input-block
-            input(type="text", name="link", id="text-link", class="form__input form__field")
-        .block-text__item
+            input(type="text" v-model="link" name="link" id="text-link" class="form__input form__field")
+          .message {{ validation.firstError('link') }}
+        .block-text__item(:class="{error: validation.hasError('mail')}")
           label(for='text-textarea' class='form__subtitle')
             .form__text Описание
           .form__textarea-block
-            textarea(name="text-textarea", id="text-textarea", class="form__textarea")
-        .block-text__item
+            textarea(name="text-textarea",  v-model="description", id="text-textarea", class="form__textarea")
+          .message {{ validation.firstError('description') }}
+        .block-text__item(:class="{error: validation.hasError('mail')}")
           label(for='text-tag' class='form__subtitle')
             .form__text Добавление тэга
           .form__input-block
-            input(type="text", name="tag", id="text-tag", class="form__input form__field")
+            input(type="text", name="tag",  v-model="tag", id="text-tag", class="form__input form__field")
+          .message {{ validation.firstError('tag') }}
         .block-text__tags-list
           tags
-        formBtns
+        .block
+          button.block__btn(type="button" @click="reset") Отмена
+          button.block__btn.works__btn(type="button" @click="submit") Сохранить
    ul.works__list
     itemAdd.works__item
     li.works__item.works__item--active
@@ -59,18 +65,86 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import SimpleVueValidation from 'simple-vue-validator';
+const Validator = SimpleVueValidation.Validator;
+Vue.use(SimpleVueValidation);
+
 export default{
     components: {
       itemAdd : () => import("./components/itemAdd.vue"),
       tags : () => import("./components/tags.vue"),
       cardsBtns : () => import("./components/cardsBtns3.vue"),
       formBtns : () => import("./components/formBtns.vue")
+    },
+    data: function () {
+      return {
+        name: '',
+        link: '',
+        description: '',
+        tag: ''
+      };
+    },
+    validators: {
+      name: function(value) {
+        return Validator.value(value).required();
+      },
+      link: function(value) {
+        return Validator.value(value).required();
+      },
+      description: function(value) {
+        return Validator.value(value).required();
+      },
+      tag: function(value) {
+        return Validator.value(value).required();
+      }
+    },
+    methods: {
+      submit: function() {
+        console.log('sub');
+        this.$validate()
+          .then(function(success) {
+            if (success) {
+              alert('Validation succeeded!')
+            }
+          });
+      },
+      reset: function() {
+        this.name = '';
+        this.link = '';
+        this.description = '';
+        this.tag = '';
+        this.validation.reset();
+      }
     }
   };
 </script>
 
 <style lang="postcss">
   @import "../styles/mixins.pcss";
+
+  .block{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+
+    @include tablets{
+      justify-content: center;
+    }
+  }
+  .block__btn{
+    color: #383bcf;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .block__btn.works__btn{
+    margin-left: 50px;
+    color: #fff;
+  }
+
+  .message{
+    color: red;
+  }
 
   .works__title{
     padding: 60px 0;

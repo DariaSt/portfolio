@@ -13,24 +13,29 @@
           span Добавить фото
       .reviews-form__text
         .reviews-form__row
-          .row__item
+          .row__item(:class="{error: validation.hasError('mail')}")
             label(for='user-name' class='form__subtitle')
               .form__text Имя автора
             .form__input-block
-              input(type="text", name="user-name", id="user-name", class="form__input form__field")
-          .row__item
+              input(type="text", v-model="user", name="user-name", id="user-name", class="form__input form__field")
+            .message {{ validation.firstError('user') }}
+          .row__item(:class="{error: validation.hasError('mail')}")
               label(for='user-post' class='form__subtitle')
                 .form__text Титул автора
               .form__input-block
-                input(type="text", name="user-post", id="user-post", class="form__input form__field")
+                input(type="text", v-model="post", name="user-post", id="user-post", class="form__input form__field")
+              .message {{ validation.firstError('post') }}              
         .reviews-form__row
-          .row__item
+          .row__item(:class="{error: validation.hasError('mail')}")
             label(for='user-review' class='form__subtitle')
               .form__text Отзыв
             .form__textarea-block
-              textarea(name="user-review", id="user-review", class="form__textarea")
+              textarea(name="user-review", v-model="userReview", id="user-review", class="form__textarea")
+            .message {{ validation.firstError('userReview') }}                          
         .reviews-form__row.reviews-form__row-btns
-          formBtns
+          .block
+            button.block__btn(type="button" @click="reset") Отмена
+            button.block__btn.works__btn(type="button" @click="submit") Сохранить
    ul.reviews__list
     itemAdd.reviews__item
     li.reviews__item
@@ -54,17 +59,76 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import SimpleVueValidation from 'simple-vue-validator';
+const Validator = SimpleVueValidation.Validator;
+Vue.use(SimpleVueValidation);
+
 export default{
     components: {
       itemAdd : () => import("./components/itemAdd.vue"),
       cardsBtns : () => import("./components/cardsBtns3.vue"),
       formBtns : () => import("./components/formBtns.vue")
+    },
+    data: function () {
+      return {
+        user: '',
+        post: '',
+        userReview: ''
+      };
+    },
+    validators: {
+      user: function(value) {
+        return Validator.value(value).required();
+      },
+      post: function(value) {
+        return Validator.value(value).required();
+      },
+      userReview: function(value) {
+        return Validator.value(value).required();
+      }
+    },
+    methods: {
+      submit: function() {
+        console.log('sub');
+        this.$validate()
+          .then(function(success) {
+            if (success) {
+              alert('Validation succeeded!')
+            }
+          });
+      },
+      reset: function() {
+        this.user = '';
+        this.post = '';
+        this.userReview = '';
+        this.validation.reset();
+      }
     }
 };
 </script>
 
 <style lang="postcss">
   @import "../styles/mixins.pcss";
+
+  .block{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+
+    @include tablets{
+      justify-content: center;
+    }
+  }
+  .block__btn{
+    color: #383bcf;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .message{
+    color: red;
+  }
 
   .reviews__title{
     padding: 60px 0;
