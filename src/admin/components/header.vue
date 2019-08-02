@@ -6,7 +6,7 @@
           .header__user-name Ставрова Дарья
         .header__panel Панель администрирования
       .header__logout
-        a.header__logout-link(href="/") Выйти
+        a.header__logout-link(href="#") Выйти
 </template>
 
 <script>

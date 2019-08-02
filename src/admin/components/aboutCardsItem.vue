@@ -1,5 +1,5 @@
 <template lang="pug">
-  form(action='#' method='POST').form
+  form.form
     .cards-item__naming
       input(type="text" value="Workflow").form__field.form__field-border.cards-item__name
       btnsRedact

@@ -1,16 +1,14 @@
 <template lang="pug">
-  form(action='#' method='POST' id='addGroup').form.form__about--add
+  form.form.form__about--add
     .cards-item__naming
-      input(type="text" placeholder="Название новой группы" id="groupName" name="groupName" ref="groupName").form__field.form__field-border.cards-item__name
+      input(type="text" placeholder="Название новой группы" id="groupName" name="groupName").form__field.form__field-border.cards-item__name
       .cards__btns
         button(type="button").cards__btns-ok
-          img(src='../../images/content/ok.png' v-on:click="checkForm").cards__btns-ok-img
+          img(src='../../images/content/ok.png').cards__btns-ok-img
         button(type="button").cards__btns-del        
           img(src='../../images/content/del.png').cards__btns-del-img
     ul.cards-item__list
     addSkill
-    .error(ref="error-groupName") 
-      .error__text Заполните поле
 </template>
 
 
