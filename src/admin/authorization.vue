@@ -15,7 +15,7 @@
           .form__input-block
             input(type="password", name="pass", id="pass", class="form__input form__field")
       .row__item-btn
-        button(type="submit" class="form-btn")
+        button(type="submit" class="form-btn sendBtn")
           span.form-btn__text Отправить
 
 </template>
